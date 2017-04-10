@@ -18,9 +18,9 @@
         
     </div>
     
-    <footer>
+    <!--<footer>
         
-    </footer>
+    </footer>-->
 
     <script src="<?php echo base_url('Bootstrap/assets/js/jquery-1.11.1.min.js')?>"></script>
     <script src="<?php echo base_url('Bootstrap/assets/bootstrap/js/bootstrap.min.js')?>"></script>
