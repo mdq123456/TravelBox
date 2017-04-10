@@ -12,6 +12,12 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		$data['strConfig'] = $this->Model_SisConfig->getValue('SuperAdmin');
+		$this->load->view('login/index',$data);
+	}
+
+	public function lista()
+	{
 		// Cargar librería Para crear tabla
 		$this->load->library('table');
 		$template = $this->table->templateStringGet();
@@ -24,13 +30,7 @@ class Login extends CI_Controller {
 		$this->load->view('plantilla',$data);
 	}
 
-	public function iniciarSesion()
-	{
-		$data['strConfig'] = $this->Model_SisConfig->getValue('SuperAdmin');
-		$this->load->view('login/iniciarSesion',$data);
-	}
-
-	public function iniciarSesionP()
+	public function iniciarSesion_Post()
 	{
         $datos = $this->input->post();
 
@@ -44,7 +44,9 @@ class Login extends CI_Controller {
 				exit;
 			}
 			else{
-				print_r('Inicio de Sesion exitoso !'.$sql['login']);
+				// print_r('Inicio de Sesion exitoso !');
+				// print_r($sql[0]->Login);
+				redirect('PaginaPrincipal/');
             	exit;
 			}
 			
