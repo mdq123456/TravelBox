@@ -4,8 +4,16 @@
 	<title>TravelBox</title>
     <link href="<?php echo base_url('Bootstrap/css/bootstrap.css')?>" rel="stylesheet">
     <script src="<?php echo base_url('Bootstrap/js/bootstrap.js')?>"></script>
-    <style>body { padding-top: 70px; }</style>
-    
+    <style>body { padding-top: 50px;
+        padding-bottom: 50px;
+        background-image: url("<?php echo base_url('Bootstrap/res/travelbox.jpg')?>");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: #464646;}
+    </style>
+
 </head>
 <body>
     <header>
@@ -13,59 +21,46 @@
         <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<?php echo base_url('PaginaPrincipal/')?>">Travel Box</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo base_url('PaginaPrincipal/')?>">Travel Box</a>
             </div>
+            
             <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo base_url('PaginaPrincipal/')?>">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle glyphicon glyphicon-chevron-down" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#enviosIndex">Listado de Envios</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
-                <li><a href="#createEnvio">Realizar Envio</a></li>
-                <li><a href="#contact">Clientes</a></li>
-                <li><a href="#contact">Personal</a></li>
-                <li><a href="#contact">Vehiculos</a></li>
-                <li><a href="#contact">Usuarios</a></li>
-                <li><a href="#contact">Configuracion</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#cerrarSesion">Cerrar Sesion</a></li>
-            </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#enviosIndex">Listado de Envios</a></li>
+                            <!--<li role="separator" class="divider"></li>-->
+                        </ul>
+                    </li>
+                    <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envio</a></li>
+                    <li><a href="<?php echo base_url('Cliente/')?>">Clientes</a></li>
+                    <li><a href="#contact">Personal</a></li>
+                    <li><a href="#contact">Vehiculos</a></li>
+                    <li><a href="#contact">Usuarios</a></li>
+                    <li><a href="#contact">Configuracion</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#cerrarSesion">Cerrar Sesion</a></li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
         </nav>
-
-        <div class="container">
-
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <h1>Navbar example</h1>
-            <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-            <p>To see the difference between static and fixed top navbars, just scroll.</p>
-            <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-            </p>
-        </div>
+    </header>
+    
+    <div class="container">
 
         <?php
             $this->load->view($contenido)
         ?>
 
-        </div> <!-- /container -->
-    </header>
+    </div> <!-- /container -->
     
     <footer>
         
@@ -76,5 +71,34 @@
     <script src="<?php echo base_url('Bootstrap/assets/js/jquery.backstretch.min.js')?>"></script>
     <script src="<?php echo base_url('Bootstrap/assets/js/scripts.js')?>"></script>
 
+    <script>
+        // When document is ready: this gets fired before body onload 
+        $(document).ready(function(){
+            // Write on keyup event of keyword input element
+            $("#kwd_search").keyup(function(){
+                // When value of the input is not blank
+                if( $(this).val() != "")
+                {
+                    // Show only matching TR, hide rest of them
+                    $("#my-table tbody>tr").hide();
+                    $("#my-table td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+                }
+                else
+                {
+                    // When there is no input or clean again, show everything back
+                    $("#my-table tbody>tr").show();
+                }
+            });
+        });
+        // jQuery expression for case-insensitive filter
+        $.extend($.expr[":"], 
+        {
+            "contains-ci": function(elem, i, match, array) 
+            {
+                return (elem.textContent || elem.innerText || $(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+            }
+        });
+    </script>
+    
 </body>
 </html>

@@ -40,26 +40,26 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
+                            <h2><strong>TravelBox</strong></h2>
+                            <h5>Gestion de envios puerta a puerta en tiempo real</h5>
 
                             <?php
-                            if ($strConfig[0] = "1"){
+                            if ($strConfig[0]->value == "1"){
                                 echo '<p>
 	                            	<a href="'.base_url('Login/Create').'"><strong>Crear Login</strong></a>, Bienvenido Administrador!
                             	</p>';
+                            }
+                            if (isset($msj)){
+                                echo '<p>
+	                            	<strong>'.$msj.'</strong>
+                            	</p>';
                             } 
                             ?>
-
                             
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-right">
-                        			<i class="fa fa-key"></i>
-                        		</div>
-                            </div>
                             <div class="form-bottom">
 			                    <form role="form" action="<?php echo base_url('Login/iniciarSesion_Post')?>" method="post" class="login-form">
 			                    	<div class="form-group">
