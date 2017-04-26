@@ -1,4 +1,4 @@
-<h1>Alta de Cliente</h1>
+<h1 align="center">Alta de Cliente</h1>
 
 <div class="jumbotron col-sm-8 col-sm-offset-2">
     <div class="container">

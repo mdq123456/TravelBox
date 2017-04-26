@@ -1,6 +1,6 @@
 <?php
 
-class Model_Cliente extends CI_Model{
+class Model_Paquete extends CI_Model{
 
     private $codPaquete;
     private $codDetalleEnvio;
@@ -10,7 +10,7 @@ class Model_Cliente extends CI_Model{
     private $Alto;
     private $NivelFragilidad;
     private $Peso;
-    private $Obsevaciones;
+    private $Observaciones;
     private $Estado;
 
     function __construct(){
@@ -34,8 +34,8 @@ class Model_Cliente extends CI_Model{
     public function GETNivelFragilidad() {return $this->NivelFragilidad;}
     private function SETPeso($Peso) {$this->Peso = $Peso;}
     public function GETPeso() {return $this->Peso;}
-    private function SETObsevaciones($Obsevaciones) {$this->Obsevaciones = $Obsevaciones;}
-    public function GETObsevaciones() {return $this->Obsevaciones;}
+    private function SETObservaciones($Observaciones) {$this->Observaciones = $Observaciones;}
+    public function GETObservaciones() {return $this->Observaciones;}
     private function SETEstado($Estado) {$this->Estado = $Estado;}
     public function GETEstado() {return $this->Estado;}
 
@@ -49,26 +49,24 @@ class Model_Cliente extends CI_Model{
                                 $Alto,
                                 $NivelFragilidad,
                                 $Peso,
-                                $Obsevaciones,
-                                $Estado){
+                                $Observaciones){
         $this->SETAncho($Ancho);
         $this->SETLargo($Largo);
         $this->SETAlto($Alto);
         $this->SETNivelFragilidad($NivelFragilidad);
         $this->SETPeso($Peso);
-        $this->SETObsevaciones($Obsevaciones);
-        $this->SETEstado($Estado);
+        $this->SETObservaciones($Observaciones);
     }
 
-    public function insert(){
-        $query = $this->db->query("SP_PAQUETE_AGREGAR_CLIENTE '".
-                                            $this->dni."','".
-                                            $this->cuilt."','".
-                                            $this->apelidos."','".
-                                            $this->nombres."','".
-                                            $this->telefono."','".
-                                            $this->email."','".
-                                            $this->direccion."'");
+    public function insert($codCliente){
+        $query = $this->db->query("SP_PAQUETE_AGREGAR_PAQUETE '".
+                                            $this->Ancho."','".
+                                            $this->Largo."','".
+                                            $this->Alto."','".
+                                            $this->NivelFragilidad."','".
+                                            $this->Peso."','".
+                                            $this->Observaciones."','".
+                                            $codCliente."'");
             
         return $query->result();
     }

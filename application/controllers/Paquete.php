@@ -16,27 +16,27 @@ class Paquete extends CI_Controller {
 		$this->load->view('plantilla',$data);
 	}
 
-	public function create()
+	public function create($codCliente)
 	{
 		$data['msj'] = null;
 		$data['contenido'] = "paquete/create";
+        $data['codCliente'] = $codCliente;
 		$this->load->view('plantilla',$data);
 	}
 
 	public function create_Post()
 	{
         $datos = $this->input->post();
-		
+
         if (isset($datos)){
 			$paqueteObj = new Model_Paquete();
-			$paqueteObj->settearInsert($datos['txtDni'],
-									$datos['txtCuil'],
-									$datos['txtApellidos'],
-									$datos['txtNombres'],				
-									$datos['txtTelefono'],
-									$datos['txtEmail'],
-									$datos['txtDireccion']);
-			$sql=$paqueteObj->insert();
+			$paqueteObj->settearInsert($datos['txtAncho'],
+									$datos['txtLargo'],
+									$datos['txtAlto'],
+									$datos['txtNivelFragilidad'],				
+									$datos['txtPeso'],
+									$datos['txtObservaciones']);
+			$sql=$paqueteObj->insert($datos['codCliente']);
 
 			if ($sql[0]->Retorno != 'ok'){
 				$data['msj'] = $sql[0]->Retorno;
@@ -44,9 +44,11 @@ class Paquete extends CI_Controller {
 				$this->load->view('plantilla',$data);
 			}
 			else{
-				$data['msj'] = "Cliente creado con exito!";
-				$data['contenido'] = "paquete/create";
-				$this->load->view('plantilla',$data);
+				$data['msj'] = null;
+                $data['codEnvio'] = $sql[0]->codEnvio;
+                $data['codDetalleEnvio'] = $sql[0]->codDetalleEnvio;
+				$data['contenido'] = "envio/destino";
+				$this->load->view('plantillaMapa',$data);
 			}
 			
         }else

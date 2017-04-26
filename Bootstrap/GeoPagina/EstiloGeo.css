@@ -1,0 +1,273 @@
+/* cyrillic-ext */
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 40px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+body, input {
+    font-family:"Roboto",sans-serif;
+    font-weight:300;
+}
+
+strong, label, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family:"Roboto",sans-serif;
+    font-weight:500;
+}
+
+h2, h3, .h2, .h3 {
+    font-size:24px;
+}
+
+h4 #link {
+    font-weight:300;
+}
+
+#footer {
+    background-color:#fff;
+    border-top:1px solid #e7e7e7;
+}
+
+#wrap {
+    margin:0 auto -61px;
+    padding:0 0 61px;
+}
+
+.row {
+    margin-bottom:15px;
+}
+
+#top_account {
+    padding-top:11px;
+	 margin-left:10px;
+	 margin-right:10px;
+}
+
+#plus-one {
+    padding-top:11px;
+	 margin-right:10px;
+}
+
+.twitter {
+    padding-top:13px;
+}
+
+.container > .navbar-header, .container > .navbar-collapse {
+    margin-left:-15px;
+    margin-right:-15px;
+}
+
+.navbar-collapse {
+    max-height:400px;
+}
+
+.navbar-default {
+    background-color:#fff;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color:#eee;
+}
+
+.nav-tabs {
+    border-bottom: 0 none;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-color:#e7e7e7;
+  border-bottom-color: transparent;
+}
+
+.page-header {
+    margin: 0 0 15px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.sexagesimal, .sexagesimalsec {
+    display:inline-block;
+    padding:6px;
+}
+
+.sexagesimal {
+    width: 40px;
+}
+
+.sexagesimalsec {
+    width: 70px;
+}
+
+.form-horizontal .control-label {
+    text-align:left;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+    margin-right:10px;
+    margin-left:5px;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"],
+.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    margin-left:-18px;
+}
+
+.radio-inline, .checkbox-inline {
+    padding-left:18px;
+    padding-top:0;
+    width:28px;
+}
+
+.form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+    padding-top:0;
+}
+
+.form-horizontal {
+    border-bottom:1px solid #e7e7e7;
+    padding-bottom:5px;
+}
+
+.col-md-3.control-label {
+    margin-bottom: 2px;
+}
+
+#map_canvas {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width:100%;
+    height:500px;
+    position:relative;
+    background:rgb(229, 227, 223)  no-repeat 50% 50%;
+    overflow:hidden;
+}
+
+.favorite, .bookmarked {
+    margin-left: 15px;
+}
+
+.table > thead > tr > th {
+    border-bottom: 1px solid #e7e7e7;
+    vertical-align: bottom;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #e7e7e7;
+    vertical-align: middle;
+}
+
+hr {
+  border-top: 1px solid #e7e7e7;
+}
+
+.zeroclipboard-is-hover {
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
+.adslot_responsive { display:inline-block;width:728px;height:15px }
+
+.admargintop  {margin-top: 10px;}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-md-9 {
+    width: 100%;
+  }
+  .col-md-offset-3.col-md-4 {
+    width: 100%;
+  }
+  .col-md-offset-3 {
+    margin-left:0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .col-md-3.control-label {
+    padding-top:0;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+    .nav > li > a {
+      position: relative;
+      display: block;
+      padding: 10px 7px;
+    }
+}
+
+@media (max-width: 767px) {
+  #wrap {
+    word-wrap:break-word;
+  }
+  #copy-button {
+    display: none;
+  }
+  .nav-tabs > li {
+    float:none;
+    margin-bottom:0;
+  }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border:0 none;
+  }
+  .nav-tabs > li > a {
+    border:0 none;
+    border-radius:0;
+    margin-right:0;
+  }
+  .navbar-header {
+    width:100%;
+  }
+  .navbar-toggle {
+    margin-top:6px;
+  }
+}
+
+@media (max-width: 400px) {
+    .adslot_responsive { display: none; }
+}
+

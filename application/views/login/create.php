@@ -16,7 +16,7 @@
         <div class="container">	
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 ">
-                    <h2>Alta de Usuario Login</h2>
+                    <h1 align="center">Alta de Usuario Login</h2>
                     
                     <?php echo form_open('Login/create_Post'); ?>
                         <div class="form-group">

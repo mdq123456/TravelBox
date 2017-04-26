@@ -1,4 +1,4 @@
-<h1>Seleccione un cliente para continuar con el alta de envio</h1>
+<h1 align="center">Seleccione un cliente para continuar con el alta de envio</h1>
 <br>
 <div class="jumbotron">
   <div class="container">
@@ -43,7 +43,7 @@
                             <?= $row->cuil; ?>
                         </td>
                         <td align="center">
-                            <a href="Paquete/Create/<?= $row->codCliente; ?>">
+                            <a href="<?php echo base_url('Paquete/create/')?><?= $row->codCliente; ?>">
                                 <button class='btn btn-primary btn-xs'>
                                 <span class='glyphicon glyphicon-ok'></span>
                                 </button>
