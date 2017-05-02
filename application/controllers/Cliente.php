@@ -45,7 +45,7 @@ class Cliente extends CI_Controller {
 			}
 			else{
 				$data['msj'] = "Cliente creado con exito!";
-				$data['contenido'] = "cliente/create";
+				$data['contenido'] = "cliente/index";
 				$this->load->view('plantilla',$data);
 			}
 			

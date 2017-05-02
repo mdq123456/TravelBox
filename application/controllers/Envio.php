@@ -13,7 +13,7 @@ class Envio extends CI_Controller {
 	{
         $data['getAll'] = $this->Model_Envio->getAll();
         $data['contenido'] = "envio/index";
-		$this->load->view('plantillaMapa',$data);
+		$this->load->view('plantilla',$data);
 	}
 
     public function destino()
@@ -43,7 +43,7 @@ class Envio extends CI_Controller {
 				$this->load->view('plantillaMapa',$data);
 			}
 			else{
-				redirect('PaginaPrincipal/');
+				redirect('Envio/');
 			}
 			
         }else

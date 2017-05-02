@@ -41,13 +41,13 @@
                     </li>
                     <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envio</a></li>
                     <li><a href="<?php echo base_url('Cliente/')?>">Clientes</a></li>
-                    <li><a href="#contact">Personal</a></li>
+                    <li><a href="<?php echo base_url('Envio/')?>">Envios del Dia</a></li>
                     <li><a href="#contact">Vehiculos</a></li>
                     <li><a href="#contact">Usuarios</a></li>
                     <li><a href="#contact">Configuracion</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#cerrarSesion">Cerrar Sesion</a></li>
+                    <li><a href="<?php echo base_url('Login/')?>">Cerrar Sesion</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
