@@ -4,7 +4,8 @@
 	<title>TravelBox</title>
     <link href="<?php echo base_url('Bootstrap/css/bootstrap.css')?>" rel="stylesheet">
     <script src="<?php echo base_url('Bootstrap/js/bootstrap.js')?>"></script>
-    <style>body { padding-top: 50px;
+    <style>
+    body { padding-top: 50px;
         padding-bottom: 50px;
         background-image: url("<?php echo base_url('Bootstrap/res/travelbox.jpg')?>");
         background-position: center center;
@@ -12,6 +13,9 @@
         background-attachment: fixed;
         background-size: cover;
         background-color: #464646;}
+   
+
+    
     </style>
 
 </head>
@@ -35,13 +39,13 @@
                     <li class="dropdown">
                         <a href="#" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                         <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url('Envio/')?>">Envios del Dia</a></li>
                             <li><a href="#enviosIndex">Listado de Envios</a></li>
                             <!--<li role="separator" class="divider"></li>-->
                         </ul>
                     </li>
                     <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envio</a></li>
                     <li><a href="<?php echo base_url('Cliente/')?>">Clientes</a></li>
-                    <li><a href="<?php echo base_url('Envio/')?>">Envios del Dia</a></li>
                     <li><a href="#contact">Vehiculos</a></li>
                     <li><a href="#contact">Usuarios</a></li>
                     <li><a href="#contact">Configuracion</a></li>
@@ -100,5 +104,8 @@
         });
     </script>
     
+<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+<script src="jquery.michiweber.table-head-fixed.js"></script>
+
 </body>
 </html>

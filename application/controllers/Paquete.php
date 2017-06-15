@@ -53,7 +53,7 @@ class Paquete extends CI_Controller {
 			
         }else
 		{
-			$data['msj'] = 'Complete los datos para agregar un Cliente.';
+			$data['msj'] = 'Complete los datos para agregar un Paquete.';
 			$data['contenido'] = "paquete/create";
 			$this->load->view('plantilla',$data);
 		}

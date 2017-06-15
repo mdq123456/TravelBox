@@ -1,7 +1,7 @@
 <h1 align="center">Listado de Envios del dia</h1>
 <br>
 <div class="jumbotron">
-  <div class="container">
+  <div class="container" >
         <!--<label for="kwd_search">Search:</label> <input type="text" id="kwd_search" value=""/>-->
         <div class="row">
             <div class="col-xs-7 col-sm-7 col-md-9">
@@ -13,9 +13,10 @@
         </div>
         
         <br>
-        <div class="table-responsive">
-            <table id="my-table" border="1" style="border-collapse:collapse" class="table table-hover table-condensed">
-                <thead>
+        
+        <div class="table-responsive" id="cabecera">
+            <table id="my-table" border="1" style="border-collapse:collapse" class="table table-fixed-head">
+                 <thead>
                     <tr>
                         <th>Envio Nro</th>
                         <th>Nombre Cliente</th>
@@ -30,28 +31,170 @@
                         foreach ($getAll as $row) {
                     ?>     
                     <tr>
-                        <td>
+                        <td  >
                             <?= $row->codEnvio; ?>
                         </td>
-                        <td>
+                        <td  >
                             <?= $row->Nombre; ?>
                         </td>
-                        <td>
+                        <td  >
                             <?= $row->PrecioTotal; ?>
                         </td>
-                        <td>
+                        <td  >
                             <?= $row->DireccionDestino; ?>
                         </td>
-                        <td>
+                        <td  >
                             <?= $row->FechaPartida; ?>
                         </td>
-                        <td>
+                        <td  >
                             <?= $row->CantidadPaquetes; ?>
                         </td>
                     </tr>
                     <?php        
                         }
                     ?>
+
+                    <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr> 
+                     <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr>  
+                     <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr>  
+                     <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr>  
+                     <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr>  
+                     <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr>  
+                     <tr>
+                        <td  >
+                            Hola
+                        </td>
+                        <td  >
+                            Como
+                        </td>
+                        <td  >
+                            Estas
+                        </td>
+                        <td  >
+                            Toga
+                        </td>
+                        <td  >
+                            AAAA
+                        </td>
+                        <td  >
+                            Minga
+                        </td>
+                     </tr>    
+
                 </tbody>
             </table>
         </div>
