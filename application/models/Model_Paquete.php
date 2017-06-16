@@ -43,7 +43,24 @@ class Model_Paquete extends CI_Model{
         $query = $this->db->query("SP_PAQUETE_GETALL");
         return $query->result();
     }
+public function getOne($codPaquete){
+        $query = $this->db->query("SP_PAQUETE_GETONE ".$codPaquete);
+        return $query->result();
+    }
 
+    
+    public function actualizarInfo($codPaquete){
+        $query = $this->db->query("SP_PAQUETE_MODIFICAR ".
+                                            $codPaquete.",".
+                                            $this->Ancho.",".
+                                            $this->Largo.",".
+                                            $this->Alto.",".
+                                            $this->NivelFragilidad.",".
+                                            $this->Peso.",'".
+                                            $this->Observaciones."'");
+            
+        return $query->result();
+    }
     public function settearInsert($Ancho,
                                 $Largo,
                                 $Alto,

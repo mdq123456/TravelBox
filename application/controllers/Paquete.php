@@ -23,6 +23,46 @@ class Paquete extends CI_Controller {
         $data['codCliente'] = $codCliente;
 		$this->load->view('plantilla',$data);
 	}
+	public function modification($codPaquete)
+	{
+		$data['getOne'] = $this->Model_Paquete->getOne($codPaquete);
+        $data['contenido'] = "paquete/modification";
+		$this->load->view('plantilla',$data);
+	}
+	public function modification_Post()
+	{
+        $datos = $this->input->post();
+
+        if (isset($datos)){
+			$paqueteObj = new Model_Paquete();
+			$paqueteObj->settearInsert($datos['txtAncho'],
+									$datos['txtLargo'],
+									$datos['txtAlto'],
+									$datos['txtNivelFragilidad'],				
+									$datos['txtPeso'],
+									$datos['txtObservaciones']);
+			$sql=$paqueteObj->actualizarinfo($datos['codPaquete']);
+
+			/*if ($sql[0]->Retorno != 'ok'){
+				$data['msj'] = $sql[0]->Retorno;
+				$data['contenido'] = "paquete/modification";
+				$this->load->view('plantilla',$data);
+			}
+			else{
+				$data['msj'] = null;
+                $data['codEnvio'] = $sql[0]->codEnvio;
+                $data['codDetalleEnvio'] = $sql[0]->codDetalleEnvio;
+				$data['contenido'] = "envio/destino";
+				$this->load->view('plantillaMapa',$data);
+			}*/
+			
+        }else
+		{
+			$data['msj'] = 'Complete los datos para que el Paquete sea modificado.';
+			$data['contenido'] = "paquete/modification";
+			$this->load->view('plantilla',$data);
+		}
+	}
 
 	public function create_Post()
 	{
