@@ -104,8 +104,7 @@
         });
     </script>
     
-<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
-<script src="jquery.michiweber.table-head-fixed.js"></script>
+
 
 </body>
 </html>
