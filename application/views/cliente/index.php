@@ -26,6 +26,8 @@
                         <th>DNI</th>
                         <th>CUIL/CUIT</th>
                         <th>Seleccionar</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +48,20 @@
                             <a href="<?php echo base_url('Paquete/create/')?><?= $row->codCliente; ?>">
                                 <button class='btn btn-primary btn-xs'>
                                 <span class='glyphicon glyphicon-ok'></span>
+                                </button>
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="<?php echo base_url('Cliente/editar/')?><?= $row->codCliente; ?>">
+                                <button class='btn btn-warning btn-xs'>
+                                <span class='glyphicon glyphicon-edit'></span>
+                                </button>
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="<?php echo base_url('Cliente/eliminar/')?><?= $row->codCliente; ?>">
+                                <button class='btn btn-danger btn-xs'>
+                                <span class='glyphicon glyphicon-remove'></span>
                                 </button>
                             </a>
                         </td>
