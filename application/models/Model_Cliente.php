@@ -67,6 +67,11 @@ class Model_Cliente extends CI_Model{
         return $query->result();
     }
 
+    public function buscarDatosCliente($codCliente){
+        $query = $this->db->query("SP_CLIENTE_BUSCARCLIENTE ".$codCliente);
+        return $query->result();
+        }
+
     
 
 }
