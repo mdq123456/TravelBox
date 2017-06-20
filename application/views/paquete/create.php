@@ -53,7 +53,8 @@
                     <div class="form-group" align="right">
                         <input type="hidden" class="form-control" name="codCliente" id="codCliente" value="<?php echo $codCliente ?>" >
                         <a class="btn btn-default" href="<?php echo base_url('Cliente/')?>" role="button">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <input type="submit" name="boton" class="btn btn-primary" value= "Agregar Paquete">
+                        <input type="submit" name="boton" class="btn btn-success" value ="Finalizar">
                     </div>
                     <?php echo form_close(); ?>  
                 <!--</form>-->

@@ -76,13 +76,15 @@ public function getOne($codPaquete){
     }
 
     public function insert($codCliente){
+        
+        
         $query = $this->db->query("SP_PAQUETE_AGREGAR_PAQUETE '".
-                                            $this->Ancho."','".
-                                            $this->Largo."','".
-                                            $this->Alto."','".
-                                            $this->NivelFragilidad."','".
-                                            $this->Peso."','".
-                                            $this->Observaciones."','".
+                                            ($this->Ancho == ''? null : $this->Ancho)."','".
+                                            ($this->Largo == ''? null : $this->Largo)."','".
+                                            ($this->Alto == ''? null : $this->Alto)."','".
+                                            ($this->NivelFragilidad == ''? null : $this->NivelFragilidad)."','".
+                                            ($this->Peso == ''? null : $this->Peso)."','".
+                                            ($this->Observaciones == ''? null : $this->Observaciones)."','".
                                             $codCliente."'");
             
         return $query->result();

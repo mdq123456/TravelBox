@@ -27,6 +27,9 @@ class Envio extends CI_Controller {
 	{
         $datos = $this->input->post();
 
+		print_r($datos);
+		exit();
+
         if (isset($datos)){
 			$envioObj = new Model_Envio();
 			$envioObj->settearInsert($datos['codEnvio'],
@@ -49,8 +52,10 @@ class Envio extends CI_Controller {
         }else
 		{
 			$data['msj'] = 'Complete los datos para crear el usuario.';
+			$data['codEnvio'] = $datos['codEnvio'];
+			$data['codDetalleEnvio'] = $datos['codDetalleEnvio'];
 			$data['contenido'] = "envio/destino";
-			$this->load->view('plantillaMapa',$data);;
+			$this->load->view('plantillaMapa',$data);
 		}
 	}
 
