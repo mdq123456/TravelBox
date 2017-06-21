@@ -1,31 +1,34 @@
-<h1 align="center">Alta de Vehiculo</h1>
+<h1 align="center">Modificacion de Vehiculo</h1>
 
 <div class="jumbotron col-sm-8 col-sm-offset-2">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 ">
 
-                <?php echo form_open('Vehiculo/create_Post'); ?>
+                <?php echo form_open('Vehiculo/editar_Post'); ?>
+                <?php 
+                    $row = $getOne[0];
+                    ?>
                     <div class="form-group">
                         <label for="Label1">Patente</label>
-                        <input type="text" class="form-control" name="txtPatente" id="txtPatente" aria-describedby="emailHelp" placeholder="Patente de Vehiculo">
+                        <input type="text" class="form-control" name="txtPatente" id="txtPatente" aria-describedby="emailHelp" value="<?= $row->Patente; ?>">
                     </div>
                     <div class="form-group">
                         <label for="Label1">Modelo</label>
-                        <input type="text" class="form-control" name="txtModelo" id="txtModelo" aria-describedby="emailHelp" placeholder="Modelo del Vehiculo">
+                        <input type="text" class="form-control" name="txtModelo" id="txtModelo" aria-describedby="emailHelp" value="<?= $row->Modelo; ?>">
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label for="Label1">Marca</label>
-                                <input type="text" class="form-control" name="txtMarca" id="txtMarco" aria-describedby="emailHelp" placeholder="Marca del Vehiculo">
+                                <input type="text" class="form-control" name="txtMarca" id="txtMarca" aria-describedby="emailHelp" value="<?= $row->Marca; ?>">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label for="Label2">Capacidad</label>
-                                <input type="text" class="form-control" name="txtCapacidad" id="txtCapacidad" placeholder="Capacidad Maxima">
+                                <input type="text" class="form-control" name="txtCapacidad" id="txtCapacidad" aria-describedby="emailHelp" value="<?= $row->Capacidad; ?>">
                             </div>
                         </div>
                     </div>
@@ -43,6 +46,7 @@
                         </div>
 
                     <div class="form-group" align="right">
+                        <input type="hidden" class="form-control" name="codVehiculo" id="codVehiculo" value="<?php echo $row->codVehiculo; ?>" >
                         <a class="btn btn-default" href="<?php echo base_url('Vehiculo/')?>" role="button">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>

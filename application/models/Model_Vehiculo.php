@@ -2,7 +2,7 @@
 
 class Model_Vehiculo extends CI_Model{
 
-    private $codVehiculo;
+    //private $codVehiculo;
     private $Patente;
     private $Modelo;
     private $Marca;
@@ -22,33 +22,34 @@ class Model_Vehiculo extends CI_Model{
     public function GETMdelo() {return $this->Modelo;}
     private function SETMarca($Marca) {$this->Marca = $Marca;}
     public function GETMarca() {return $this->Marca;}
-    private function SETCapacidad($apacidad) {$this->Capacidad = $Capacidad;}
+    private function SETCapacidad($Capacidad) {$this->Capacidad = $Capacidad;}
     public function GETCapacidad() {return $this->Capacidad;}
     private function SETTipoVehiculo($TipoVehiculo) {$this->TipoVehiculo = $TipoVehiculo;}
     public function GETTipoVehiculo() {return $this->TipoVehiculo;}
 
+
     public function getAll(){
         $query = $this->db->query("SP_VEHICULO_GETALL");
         return $query->result();
+
+    }
+    public function getOne($codVehiculo){
+        $query = $this->db->query("SP_VEHICULO_GETONE ".$codVehiculo);
+        return $query->result();
     }
 
-    public function settearInsert($codVehiculo,
-                                 $Patente,
-                                 $Modelo,
-                                 $Marca,
-                                 $Capacidad,
-                                 $TipoVehiculo){
-        $this->SETcodEnvio($codVehiculo);
-        $this->SETcodDetalleEnvio($Patente);
-        $this->SETFechaEnvio($Modelo);
-        $this->SETDestino($Marca);
-        $this->SETLatLon($Capacidad);
-        $this->SETLatLon($TipoVehiculo);
-    }
+    
+    public function actualizarInfo($codVehiculo){
+        // print_r("SP_VEHICULO_EDITAR ".      $this->codVehiculo.",".
+        //                                     $this->Patente.",".
+        //                                     $this->Modelo.",".
+        //                                     $this->Marca.",".
+        //                                     $this->Capacidad.",".
+        //                                     $this->TipoVehiculo.",'");
 
-    public function insert(){
-        $query = $this->db->query("SP_ENVIO_CONFIRMAR_ENVIO '".
-                                            $this->codVehiculo."','".
+        //                                     exit();
+         $query = $this->db->query("SP_VEHICULO_EDITAR ".
+                                            $codVehiculo.",'".
                                             $this->Patente."','".
                                             $this->Modelo."','".
                                             $this->Marca."','".
@@ -57,6 +58,35 @@ class Model_Vehiculo extends CI_Model{
             
         return $query->result();
     }
+//$codVehiculo,
+    public function settearInsert($Patente,
+                                 $Modelo,
+                                 $Marca,
+                                 $Capacidad,
+                                 $TipoVehiculo){
+      //  $this->SETcodVehiculo($codVehiculo);
+        $this->SETPatente($Patente);
+        $this->SETModelo($Modelo);
+        $this->SETMarca($Marca);
+        $this->SETCapacidad($Capacidad);
+        $this->SETTipoVehiculo($TipoVehiculo);
+    }
+
+    public function insert(){
+        $query = $this->db->query("SP_VEHICULO_AGREGAR_VEHICULO '".
+                                            //$this->codVehiculo."','".
+                                            $this->Patente."','".
+                                            $this->Modelo."','".
+                                            $this->Marca."','".
+                                            $this->Capacidad."','".
+                                            $this->TipoVehiculo."'");
+            
+        return $query->result();
+    }
+    public function eliminar($codVehiculo){
+ $query = $this->db->query("SP_VEHICULO_ELIMINAR ". $codVehiculo);
+         return $query->result();
+     }
 
     
 
