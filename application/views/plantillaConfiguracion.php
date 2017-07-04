@@ -37,42 +37,15 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                        <a href="" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     </li>
-                    <?php
-                    if($this->session->userdata('logueado')
-                        && $this->session->userdata('rol') != 4){
-                    ?>
-                    <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envios</a></li>
-                    <li><a href="<?php echo base_url('Envio/')?>">Envios del Dia</a></li>
-                    <?php
-                    }
-                    if($this->session->userdata('logueado')
-                        && ($this->session->userdata('rol') == 4 || $this->session->userdata('rol') == 1)){
-                    ?>
-                    <li><a href="<?php echo base_url('Envio/enTransito')?>">Envios en transito</a></li>
-                    <?php
-                    }
-                    if($this->session->userdata('logueado')
-                        && $this->session->userdata('rol') == 1){
-                    ?>
-                    <li><a href="<?php echo base_url('Configuracion/')?>">Configuracion</a></li>
-                    <?php
-                    }
-                    ?>
+                    <li><a href="<?php echo base_url('Login/lista')?>">Sesiones</a></li>
+                    <li><a href="<?php echo base_url('Vehiculo/')?>">Vehiculos</a></li>
+                    <li><a href="<?php echo base_url('Conductor/')?>">Conductores</a></li>
+                    <li><a href="<?php echo base_url('Paquete/')?>">Paquetes</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <?php
-                    if($this->session->userdata('logueado')){
-                    ?>
                     <li><a href="<?php echo base_url('Login/')?>">Cerrar Sesion</a></li>
-                    <?php
-                    }else{
-                    ?>
-                    <li><a href="<?php echo base_url('Login/')?>">Iniciar Sesion</a></li>
-                    <?php
-                    }
-                    ?>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

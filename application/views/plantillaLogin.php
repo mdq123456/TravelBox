@@ -17,6 +17,31 @@
 
     
     </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Login Form Template</title>
+
+    <!-- CSS -->
+    
+    <link rel="stylesheet" href="<?php echo base_url('Bootstrap/assets/bootstrap/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('Bootstrap/assets/font-awesome/css/font-awesome.min.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('Bootstrap/assets/css/form-elements.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('Bootstrap/assets/css/style.css')?>">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="<?php echo base_url('Bootstrap/assets/ico/favicon.png')?>">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url('Bootstrap/assets/ico/apple-touch-icon-144-precomposed.png')?>">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url('Bootstrap/assets/ico/apple-touch-icon-114-precomposed.png')?>">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url('Bootstrap/assets/ico/apple-touch-icon-72-precomposed.png')?>">
+    <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('Bootstrap/assets/ico/apple-touch-icon-57-precomposed.png')?>">
 
 </head>
 <body>
@@ -31,62 +56,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('PaginaPrincipal/')?>">Travel Box</a>
+                <a class="navbar-brand" href="<?php echo base_url('')?>">Travel Box</a>
             </div>
             
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                        <a href="" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     </li>
-                    <?php
-                    if($this->session->userdata('logueado')
-                        && $this->session->userdata('rol') != 4){
-                    ?>
-                    <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envios</a></li>
-                    <li><a href="<?php echo base_url('Envio/')?>">Envios del Dia</a></li>
-                    <?php
-                    }
-                    if($this->session->userdata('logueado')
-                        && ($this->session->userdata('rol') == 4 || $this->session->userdata('rol') == 1)){
-                    ?>
-                    <li><a href="<?php echo base_url('Envio/enTransito')?>">Envios en transito</a></li>
-                    <?php
-                    }
-                    if($this->session->userdata('logueado')
-                        && $this->session->userdata('rol') == 1){
-                    ?>
-                    <li><a href="<?php echo base_url('Configuracion/')?>">Configuracion</a></li>
-                    <?php
-                    }
-                    ?>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <?php
-                    if($this->session->userdata('logueado')){
-                    ?>
-                    <li><a href="<?php echo base_url('Login/')?>">Cerrar Sesion</a></li>
-                    <?php
-                    }else{
-                    ?>
-                    <li><a href="<?php echo base_url('Login/')?>">Iniciar Sesion</a></li>
-                    <?php
-                    }
-                    ?>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
         </nav>
     </header>
-    
-    <div class="container">
+    <div class="inner-bg">
+        <div class="container">
 
-        <?php
-            $this->load->view($contenido)
-        ?>
+            <?php
+                $this->load->view($contenido)
+            ?>
 
-    </div> <!-- /container -->
-    
+        </div> <!-- /container -->
+    </div>
     <footer>
         
     </footer>

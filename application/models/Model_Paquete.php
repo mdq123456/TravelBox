@@ -43,24 +43,7 @@ class Model_Paquete extends CI_Model{
         $query = $this->db->query("SP_PAQUETE_GETALL");
         return $query->result();
     }
-public function getOne($codPaquete){
-        $query = $this->db->query("SP_PAQUETE_GETONE ".$codPaquete);
-        return $query->result();
-    }
 
-    
-    public function actualizarInfo($codPaquete){
-        $query = $this->db->query("SP_PAQUETE_MODIFICAR ".
-                                            $codPaquete.",".
-                                            $this->Ancho.",".
-                                            $this->Largo.",".
-                                            $this->Alto.",".
-                                            $this->NivelFragilidad.",".
-                                            $this->Peso.",'".
-                                            $this->Observaciones."'");
-            
-        return $query->result();
-    }
     public function settearInsert($Ancho,
                                 $Largo,
                                 $Alto,
@@ -90,6 +73,28 @@ public function getOne($codPaquete){
         return $query->result();
     }
 
+    public function Delete($codPaquete){
+        $query = $this->db->query("SP_PAQUETE_ELIMINAR ".$codPaquete);
+        return $query->result();
+    }
+
+    public function getOne($codPaquete){
+        $query = $this->db->query("SP_PAQUETE_GETONE ".$codPaquete);
+        return $query->result();
+    }
+
+    public function actualizarInfo($codPaquete){
+        $query = $this->db->query("SP_PAQUETE_MODIFICAR '".
+                                            $codPaquete."','".
+                                            ($this->Ancho == ''? null : $this->Ancho)."','".
+                                            ($this->Largo == ''? null : $this->Largo)."','".
+                                            ($this->Alto == ''? null : $this->Alto)."','".
+                                            ($this->NivelFragilidad == ''? null : $this->NivelFragilidad)."','".
+                                            ($this->Peso == ''? null : $this->Peso)."','".
+                                            ($this->Observaciones == ''? null : $this->Observaciones)."'");
+        return $query->result();
     
+    }
+
 
 }

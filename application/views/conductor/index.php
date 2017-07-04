@@ -1,4 +1,4 @@
-<h1 align="center">Paquetes registrados o incompletos</h1>
+<h1 align="center">Tabla Conductor</h1>
 <br>
 <div class="jumbotron">
   <div class="container">
@@ -7,10 +7,13 @@
             <div class="col-xs-7 col-sm-7 col-md-9">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input id="kwd_search" type="text" class="form-control" name="msg" placeholder="Buscar Paquete">
+                    <input id="kwd_search" type="text" class="form-control" name="msg" placeholder="Buscar Conductor">
                 </div>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-3" align="right">
+                <a class="btn btn-default" href="<?php echo base_url('Conductor/Create')?>" role="button">
+                    <span class='glyphicon glyphicon-plus-sign'> </span> Conductor
+                </a>
             </div>
         </div>
         
@@ -19,15 +22,13 @@
             <table id="my-table" border="1" style="border-collapse:collapse" class="table table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>Cliente</th>
-                        <th>Fecha</th>
-                        <th>Ancho(centimetros)</th>
-                        <th>Largo(centimetros)</th>
-                        <th>Alto(centimetros)</th>
-                        <th>Nivel de Fragilidad</th>
-                        <th>Peso</th>
-                        <th>Observaciones</th>
-                        <th>Editar</th>
+                        <th>Nombre</th>
+                        <th>DNI</th>
+                        <th>Codigo de Carnet</th>
+                        <th>Estado Civil</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Modificar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
@@ -37,49 +38,39 @@
                     ?>     
                     <tr>
                         <td>
-                            <?= $row->cliente; ?>
-                        </td>
-                        <td>
-                            <?= $row->fecha; ?>
-                        </td>
-                        <td>
-                            <?= $row->Ancho; ?>
-                        </td>
-                        <td>
-                            <?= $row->Largo; ?>
-                        </td>
-                        <td>
-                            <?= $row->Alto; ?>
+                              <?= $row->Nombre; ?>
+                            
                         </td>
                          <td>
-                            <?= $row->NivelFragilidad; ?>
+                              <?= $row->DNI; ?>
+                            
                         </td>
-                         <td>
-                            <?= $row->Peso; ?>
+                        <td>
+                               <?= $row->codCarnet; ?>
                         </td>
-                         <td>
-                            <?= $row->Observaciones; ?>
+                        <td>
+                               <?= $row->EstadoCivil; ?>
+                        </td>
+                        <td>
+                               <?= $row->Direccion; ?>
+                        </td>
+                        <td>
+                               <?= $row->Telefono; ?>
                         </td>
                         <td align="center">
-                            <a href="<?php echo base_url('Paquete/modification/')?><?= $row->codPaquete; ?>">
+                            <a href="<?php echo base_url('Conductor/editar/')?><?= $row->codConductor; ?>">
                                 <button class='btn btn-warning btn-xs'>
                                 <span class='glyphicon glyphicon-edit'></span>
                                 </button>
                             </a>
                         </td>
-                        <?php
-                        if($row->Estado == 'Incompleto'){
-                        ?> 
                         <td align="center">
-                            <a href="<?php echo base_url('Paquete/delete/')?><?= $row->codPaquete; ?>">
+                            <a href="<?php echo base_url('Conductor/eliminar/')?><?= $row->codConductor; ?>">
                                 <button class='btn btn-danger btn-xs'>
                                 <span class='glyphicon glyphicon-remove'></span>
                                 </button>
                             </a>
                         </td>
-                        <?php
-                        }
-                        ?> 
                     </tr>
                     <?php        
                         }

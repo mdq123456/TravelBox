@@ -8,7 +8,7 @@
           <div id="map"></div>
           <div id="directionsPanel"></div>
         </div>
-        <?php echo form_open('Envio/rutas_Post'); ?>
+        <?php echo form_open('Envio/completados_Post'); ?>
         <div class="col-md-4">
           <div id="right-panel">
             <div class="form-group">
@@ -25,7 +25,7 @@
             <?php
                   foreach ($getAll as $row) {
               ?>     
-                  <option label="<?= $row->DireccionDestino; ?>" value="<?= $row->codDetalleEnvio; ?>"></option>
+                  <option label="<?= $row->DireccionDestino; ?>" value="<?= $row->codDetalleEnvio; ?>" selected></option>
               <?php        
               }
               ?>
@@ -39,11 +39,21 @@
                   <input name="txtdirOrigen" id="end" class="form-control" type="textbox" value="Junín 2175, Corrientes, Argentina" disabled >
                 </div>
             </div>
-            
-             <div class="col-md-12">
-               <input type="button" id="submit" class="btn btn-primary" value="Cargar Ruta">
-              <input type="submit" name="boton" class="btn btn-success" value ="Finalizar">
+            <?php
+            if($this->session->userdata('logueado')
+              && $this->session->userdata('rol') == 4){
+              
+            ?>
+             <div class="col-md-6">
+              <input type="submit" name="boton" class="btn btn-success" value ="Entregado">
              </div>
+             <div class="col-md-6">
+              <input type="submit" name="boton" class="btn btn-danger" value ="NO Entregado">
+             </div>
+             <?php        
+              }
+              ?>
+
              <div class="col-md-12">
               <div id="directions-panel"></div>
              </div>
@@ -77,10 +87,7 @@
           center: {lat: -27.468802, lng: -58.823392}
         });
         directionsDisplay.setMap(map);
-
-        document.getElementById('submit').addEventListener('click', function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {

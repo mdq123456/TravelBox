@@ -27,7 +27,15 @@
                         <th>CUIL/CUIT</th>
                         <th>Seleccionar</th>
                         <th>Modificar</th>
-                        <th>Eliminar</th>
+                        <?php
+                        if($this->session->userdata('logueado')
+                            && $this->session->userdata('rol') == 1){
+                        ?> 
+                           <th>Eliminar</th>
+                        <?php
+                            }
+                        ?> 
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -58,13 +66,20 @@
                                 </button>
                             </a>
                         </td>
-                        <td align="center">
-                            <a href="<?php echo base_url('Cliente/eliminar/')?><?= $row->codCliente; ?>">
-                                <button class='btn btn-danger btn-xs'>
-                                <span class='glyphicon glyphicon-remove'></span>
-                                </button>
-                            </a>
-                        </td>
+                        <?php
+                            if($this->session->userdata('logueado')
+                                && $this->session->userdata('rol') == 1){
+                        ?> 
+                            <td align="center">
+                                <a href="<?php echo base_url('Cliente/eliminar/')?><?= $row->codCliente; ?>">
+                                    <button class='btn btn-danger btn-xs'>
+                                    <span class='glyphicon glyphicon-remove'></span>
+                                    </button>
+                                </a>
+                            </td>
+                        <?php
+                            }
+                        ?> 
                     </tr>
                     <?php        
                         }

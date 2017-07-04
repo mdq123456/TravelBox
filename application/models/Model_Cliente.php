@@ -67,11 +67,34 @@ class Model_Cliente extends CI_Model{
         return $query->result();
     }
 
+    public function getOne($codCliente){
+        $query = $this->db->query("SP_CLIENTE_BUSCARCLIENTE ".$codCliente);
+        return $query->result();
+    }
+
+    public function actualizarInfo($codCliente){
+        
+        $query = $this->db->query("SP_CLIENTE_MODIFICAR '".
+                                            $codCliente."','".
+                                            $this->dni."','".
+                                            $this->cuilt."','".
+                                            $this->apellidos."','".
+                                            $this->nombres."','".
+                                            $this->telefono."','".
+                                            $this->email."','".
+                                            $this->direccion."'");
+        return $query->result();
+    }
+
+
     public function buscarDatosCliente($codCliente){
         $query = $this->db->query("SP_CLIENTE_BUSCARCLIENTE ".$codCliente);
         return $query->result();
         }
 
-    
+    public function eliminar($codCliente){
+            $query = $this->db->query("SP_CLIENTE_ELIMINAR ". $codCliente);
+         return $query->result();
+     }
 
 }

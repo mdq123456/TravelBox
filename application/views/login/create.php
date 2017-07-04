@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1 align="center">Alta de Usuario</h1>
 
-<head>
-	<title>TravelBox</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="<?php echo base_url('Bootstrap/css/bootstrap.css')?>" rel="stylesheet">
-    <script src="<?php echo base_url('Bootstrap/js/bootstrap.js')?>"></script>
-    <style>body { padding-top: 30px;padding-bottom: 50px }</style>
-    
-</head>
-
-    <body>
-        <div class="container">	
+<div class="jumbotron col-sm-8 col-sm-offset-2">
+    <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 ">
-                    <h1 align="center">Alta de Usuario Login</h2>
                     
                     <?php echo form_open('Login/create_Post'); ?>
                         <div class="form-group">
@@ -46,7 +33,7 @@
                             <input type="email" class="form-control" name="txtEmail" id="txtEmail" aria-describedby="emailHelp" placeholder="Email">
                             <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
                         </div>
-                        <a class="btn btn-default" href="<?php echo base_url('')?>" role="button">Regresar</a>
+                        <a class="btn btn-default" href="<?php echo base_url('Configuracion/')?>" role="button">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                       <?php echo form_close(); ?>  
                     <!--</form>-->
@@ -54,18 +41,11 @@
                 </div>
             </div>
         </div>
-        
-        <?php
+</div>
+            <?php
             if (isset($msj)){
                 echo '<script>alert("'.$msj.'");</script>';
             }
 
         ?>
         
-        <script src="<?php echo base_url('Bootstrap/assets/js/jquery-1.11.1.min.js')?>"></script>
-        <script src="<?php echo base_url('Bootstrap/assets/bootstrap/js/bootstrap.min.js')?>"></script>
-        <script src="<?php echo base_url('Bootstrap/assets/js/jquery.backstretch.min.js')?>"></script>
-        <script src="<?php echo base_url('Bootstrap/assets/js/scripts.js')?>"></script>
-    </body>
-        
-</html>

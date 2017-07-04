@@ -26,11 +26,16 @@ class Model_Login extends CI_Model{
 
     public function getAll(){
         $query = $this->db->query("SP_LOGIN_GETALL");
-        return $query;
+        return $query->result();
     }
 
     public function getRoles(){
         $query = $this->db->query("SP_LOGIN_GET_ROLES");
+        return $query->result();
+    }
+
+    public function getOne($codLogin){
+        $query = $this->db->query("SP_LOGIN_GETONE '".$codLogin."'");
         return $query->result();
     }
 
@@ -56,6 +61,17 @@ class Model_Login extends CI_Model{
         return $query->result();
     }
 
-    
+    public function editarLogin($txtLogin,
+									$txtPass,
+									$txtEmail,
+									$txtEstado){
+        $query = $this->db->query("SP_LOGIN_EDITAR_LOGIN '".
+                                            $txtLogin."','".
+                                            $txtPass."','".
+                                            $txtEmail."','".
+                                            $txtEstado."'");
+            
+        return $query->result();
+    }
 
 }

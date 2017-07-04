@@ -11,21 +11,32 @@ class Paquete extends CI_Controller {
 
 	public function index()
 	{
+		if(!$this->session->userdata('logueado')
+			|| $this->session->userdata('rol') != 1){
+			redirect('Configuracion/');
+		}
         $data['getAll'] = $this->Model_Paquete->getAll();
         $data['contenido'] = "paquete/index";
-		$this->load->view('plantilla',$data);
+		$this->load->view('plantillaConfiguracion',$data);
 	}
 
-	
 	public function modification($codPaquete)
 	{
+		if(!$this->session->userdata('logueado')
+			|| $this->session->userdata('rol') != 1){
+			redirect('Configuracion/');
+		}
 		$data['getOne'] = $this->Model_Paquete->getOne($codPaquete);
         $data['contenido'] = "paquete/modification";
-		$this->load->view('plantilla',$data);
+		$this->load->view('plantillaConfiguracion',$data);
 	}
+	
 	public function modification_Post()
 	{
-		
+		if(!$this->session->userdata('logueado')
+			|| $this->session->userdata('rol') != 1){
+			redirect('Configuracion/');
+		}
         $datos = $this->input->post();
 
         if (isset($datos)){
@@ -38,19 +49,17 @@ class Paquete extends CI_Controller {
 									$datos['txtObservaciones']);
 			$sql=$paqueteObj->actualizarinfo($datos['codPaquete']);
 
-			/*if ($sql[0]->Retorno != 'ok'){
+			if ($sql[0]->Retorno != 'ok'){
 				$data['msj'] = $sql[0]->Retorno;
 				$data['contenido'] = "paquete/modification";
 				$this->load->view('plantilla',$data);
 			}
 			else{
-				$data['msj'] = null;
-                $data['codEnvio'] = $sql[0]->codEnvio;
-                $data['codDetalleEnvio'] = $sql[0]->codDetalleEnvio;
-				$data['contenido'] = "envio/destino";
-				$this->load->view('plantillaMapa',$data);
-			}*/
+				$this->index();
+				
+			}
 			
+			//header('Location: index.php');
         }else
 		{
 			$data['msj'] = 'Complete los datos para que el Paquete sea modificado.';
@@ -61,6 +70,9 @@ class Paquete extends CI_Controller {
 
 	public function create($codCliente)
 	{
+		if(!$this->session->userdata('logueado')){
+			redirect('Login/');
+		}
 		$data['msj'] = null;
 		$data['contenido'] = "paquete/create";
         $data['codCliente'] = $codCliente;
@@ -69,6 +81,9 @@ class Paquete extends CI_Controller {
 
 	public function create_Post()
 	{
+		if(!$this->session->userdata('logueado')){
+			redirect('Login/');
+		}
         $post = $this->input->post();
 		
         if (isset($post)){
@@ -112,6 +127,39 @@ class Paquete extends CI_Controller {
 			$data['msj'] = 'Complete los datos para agregar un Paquete.';
 			$data['contenido'] = "paquete/create/".$post['codCliente'];
 			$this->load->view('plantilla',$data);
+		}
+	}
+
+	public function delete($codPaquete)
+	{
+		if(!$this->session->userdata('logueado')
+			|| $this->session->userdata('rol') != 1){
+			redirect('Configuracion/');
+		}
+		$data['delete'] = $this->Model_Paquete->delete($codPaquete);
+        $data['contenido'] = "paquete/delete";
+		$this->load->view('plantillaConfiguracion',$data);
+	}
+
+
+	public function delete_Post()
+	{
+		if(!$this->session->userdata('logueado')
+			|| $this->session->userdata('rol') != 1){
+			redirect('Configuracion/');
+		}
+        $datos = $this->input->post();
+
+        if (isset($datos)){
+			$paqueteObj = new Model_Paquete();
+			$sql=$paqueteObj->delete($datos['codPaquete']);
+
+		}else
+		{
+			$data['msj'] = 'El paquete no puede eliminarse.';
+			$data['getAll'] = $this->Model_Paquete->getAll();
+			$data['contenido'] = "paquete/index";
+			$this->load->view('plantillaConfiguracion',$data);
 		}
 	}
 

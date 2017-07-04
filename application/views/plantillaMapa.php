@@ -62,20 +62,41 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="glyphicon glyphicon-map-marker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#enviosIndex">Listado de Envios</a></li>
-                            <!--<li role="separator" class="divider"></li>-->
-                        </ul>
                     </li>
-                    <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envio</a></li>
-                    <li><a href="<?php echo base_url('Cliente/')?>">Clientes</a></li>
+                    <?php
+                    if($this->session->userdata('logueado')
+                        && $this->session->userdata('rol') != 4){
+                    ?>
+                    <li><a href="<?php echo base_url('Cliente/')?>">Realizar Envios</a></li>
                     <li><a href="<?php echo base_url('Envio/')?>">Envios del Dia</a></li>
-                    <li><a href="#contact">Vehiculos</a></li>
-                    <li><a href="#contact">Usuarios</a></li>
-                    <li><a href="#contact">Configuracion</a></li>
+                    <?php
+                    }
+                    if($this->session->userdata('logueado')
+                        && ($this->session->userdata('rol') == 4 || $this->session->userdata('rol') == 1)){
+                    ?>
+                    <li><a href="<?php echo base_url('Envio/enTransito')?>">Envios en transito</a></li>
+                    <?php
+                    }
+                    if($this->session->userdata('logueado')
+                        && $this->session->userdata('rol') == 1){
+                    ?>
+                    <li><a href="<?php echo base_url('Configuracion/')?>">Configuracion</a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <?php
+                    if($this->session->userdata('logueado')){
+                    ?>
                     <li><a href="<?php echo base_url('Login/')?>">Cerrar Sesion</a></li>
+                    <?php
+                    }else{
+                    ?>
+                    <li><a href="<?php echo base_url('Login/')?>">Iniciar Sesion</a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
